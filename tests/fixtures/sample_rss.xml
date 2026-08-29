@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Example News</title>
+    <item>
+      <title>Senate advances major climate package</title>
+      <link>https://example.com/politics/climate-package/?utm_source=rss&amp;ref=home</link>
+      <description><![CDATA[<p>Lawmakers voted after a lengthy debate.</p>]]></description>
+      <pubDate>Wed, 26 Aug 2026 13:45:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Markets respond to central bank decision</title>
+      <link>https://example.com/economy/markets</link>
+      <content:encoded><![CDATA[Investors considered the new guidance.]]></content:encoded>
+      <pubDate>2026-08-26T14:00:00Z</pubDate>
+    </item>
+  </channel>
+</rss>
+

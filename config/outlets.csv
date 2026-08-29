@@ -1,0 +1,18 @@
+source_id,source_name,domain,weak_label,rating_scope,rating_url,rating_checked_at,feed_url,feed_kind,enabled,holdout
+the_atlantic,The Atlantic,theatlantic.com,Left,online_written_news,https://www.allsides.com/news-source/atlantic,2026-08-27,https://www.theatlantic.com/feed/all/,rss,true,false
+vox,Vox,vox.com,Left,online_written_news,https://www.allsides.com/news-source/vox-news-media-bias,2026-08-27,https://www.vox.com/rss/index.xml,rss,true,false
+mother_jones,Mother Jones,motherjones.com,Left,online_written_news,https://www.allsides.com/news-source/mother-jones-bias,2026-08-27,https://www.motherjones.com/politics/feed/,rss,true,true
+abc_news,ABC News Online,abcnews.com,Lean Left,online_written_news,https://www.allsides.com/news-source/abc-news-media-bias,2026-08-27,https://feeds.abcnews.com/abcnews/politicsheadlines,rss,true,false
+nbc_news,NBC News Digital,nbcnews.com,Lean Left,online_written_news,https://www.allsides.com/news-source/nbc-news-media-bias,2026-08-27,https://feeds.nbcnews.com/nbcnews/public/politics,rss,true,false
+cnn,CNN Digital,cnn.com,Lean Left,online_written_news,https://www.allsides.com/news-source/cnn-media-bias,2026-08-27,http://rss.cnn.com/rss/cnn_allpolitics.rss,rss,true,true
+mediaite,Mediaite,mediaite.com,Lean Left,online_written_news,https://www.allsides.com/news-source/mediaite,2026-08-27,https://www.mediaite.com/feed/,rss,true,false
+the_hill,The Hill,thehill.com,Center,online_written_news,https://www.allsides.com/news-source/hill-media-bias,2026-08-27,https://thehill.com/feed/,rss,true,false
+newsnation,NewsNation,newsnationnow.com,Center,online_written_news,https://www.allsides.com/news-source/newsnation-media-bias,2026-08-27,https://www.newsnationnow.com/politics/feed/,rss,true,false
+cs_monitor,Christian Science Monitor,csmonitor.com,Center,online_written_news,https://www.allsides.com/news-source/christian-science-monitor,2026-08-27,https://rss.csmonitor.com/feeds/all,rss,true,true
+reason,Reason,reason.com,Lean Right,online_written_news,https://www.allsides.com/news-source/reason,2026-08-27,https://reason.com/feed/,rss,true,false
+the_dispatch,The Dispatch,thedispatch.com,Lean Right,online_written_news,https://www.allsides.com/news-source/dispatch-media-bias,2026-08-27,https://thedispatch.com/feed/,rss,true,false
+washington_examiner,Washington Examiner,washingtonexaminer.com,Lean Right,online_written_news,https://www.allsides.com/news-source/washington-examiner,2026-08-27,https://www.washingtonexaminer.com/feed/,rss,true,true
+fox_news,Fox News Digital,foxnews.com,Right,online_written_news,https://www.allsides.com/news-source/fox-news-media-bias,2026-08-27,https://moxie.foxnews.com/google-publisher/politics.xml,rss,true,false
+daily_wire,The Daily Wire,dailywire.com,Right,online_written_news,https://www.allsides.com/news-source/daily-wire,2026-08-27,https://www.dailywire.com/feeds/rss.xml,rss,true,false
+newsmax,Newsmax,newsmax.com,Right,online_written_news,https://www.allsides.com/news-source/newsmax-media-bias,2026-08-27,https://www.newsmax.com/rss/Politics/1,rss,true,true
+breitbart,Breitbart,breitbart.com,Right,online_written_news,https://www.allsides.com/news-source/breitbart,2026-08-27,https://www.breitbart.com/feed/,rss,true,false

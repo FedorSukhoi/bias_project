@@ -1,0 +1,17 @@
+{
+  "split_version": "pilot_v1",
+  "dataset_sha256": "5551ced956bd38a8549a2b39a12739e91d841cf2f333a20b462390805db93a5b",
+  "validation_fraction": 0.2,
+  "counts": {
+    "test_ood": 496,
+    "train": 419,
+    "validation": 118
+  },
+  "ood_sources": [
+    "cnn",
+    "cs_monitor",
+    "mother_jones",
+    "newsmax",
+    "washington_examiner"
+  ]
+}
