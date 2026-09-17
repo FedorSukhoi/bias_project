@@ -1,5 +1,78 @@
 # Why political bias is more complex than you think
 
+### Schema
+
+```mermaid
+flowchart TD
+
+subgraph group_sources["Sources &amp; labels"]
+  node_outlets["Outlet registry<br/>CSV registry<br/>[outlets.csv]"]
+  node_registry["Registry validation<br/>Python module<br/>[registry.py]"]
+end
+
+subgraph group_pipeline["Data pipeline"]
+  node_feeds["Feed parsing<br/>Python module<br/>[feeds.py]"]
+  node_backfill["Historical backfill<br/>Python module<br/>[backfill_gdelt.py]"]
+  node_collect["Collection orchestrator<br/>Python CLI<br/>[collect.py]"]
+  node_archive[("Raw source archive<br/>generated data")]
+  node_relevance["Politics relevance gate<br/>Python module<br/>[relevance.py]"]
+  node_build["Dataset builder<br/>Python CLI<br/>[build.py]"]
+  node_corpus[("Modeling corpus<br/>generated dataset")]
+end
+
+subgraph group_experiment["Experiment &amp; publication"]
+  node_split["Frozen split contract<br/>split manifest<br/>[pilot_v1.csv]"]
+  node_split_metadata["Split metadata<br/>JSON metadata"]
+  node_modeling["Modeling &amp; evaluation<br/>Python module<br/>[modeling.py]"]
+  node_audit_notebook["Data audit<br/>notebook"]
+  node_analysis_notebooks["Split, model &amp; interpretation notebooks<br/>notebook sequence"]
+  node_error_notebook["Error analysis<br/>notebook"]
+  node_dashboard_script["Article dashboard builder<br/>Python script"]
+  node_figures["README figures<br/>report artifacts"]
+end
+
+node_outlets -->|"loads and validates"| node_registry
+node_registry -->|"sources and labels"| node_collect
+node_feeds -->|"parses feeds"| node_collect
+node_backfill -->|"supplements history"| node_collect
+node_collect -->|"preserves raw records"| node_archive
+node_archive -->|"collected records"| node_build
+node_relevance -->|"topical filter"| node_build
+node_registry -->|"outlet weak labels"| node_build
+node_build -->|"politics-only data"| node_corpus
+node_corpus -->|"records assigned"| node_split
+node_split_metadata -->|"documents contract"| node_split
+node_corpus -->|"headline text only"| node_modeling
+node_split -->|"development and held-out evaluation"| node_modeling
+node_modeling -->|"analysis inputs"| node_audit_notebook
+node_audit_notebook -->|"ordered sequence"| node_analysis_notebooks
+node_analysis_notebooks -->|"ordered sequence"| node_error_notebook
+node_analysis_notebooks -->|"saved results"| node_dashboard_script
+node_dashboard_script -->|"renders"| node_figures
+
+click node_outlets "https://github.com/fedorsukhoi/bias_project/blob/main/config/outlets.csv"
+click node_registry "https://github.com/fedorsukhoi/bias_project/blob/main/src/bias_dataset/registry.py"
+click node_feeds "https://github.com/fedorsukhoi/bias_project/blob/main/src/bias_dataset/feeds.py"
+click node_backfill "https://github.com/fedorsukhoi/bias_project/blob/main/src/bias_dataset/backfill_gdelt.py"
+click node_collect "https://github.com/fedorsukhoi/bias_project/blob/main/src/bias_dataset/collect.py"
+click node_relevance "https://github.com/fedorsukhoi/bias_project/blob/main/src/bias_dataset/relevance.py"
+click node_build "https://github.com/fedorsukhoi/bias_project/blob/main/src/bias_dataset/build.py"
+click node_split "https://github.com/fedorsukhoi/bias_project/blob/main/data/splits/pilot_v1.csv"
+click node_split_metadata "https://github.com/fedorsukhoi/bias_project/blob/main/data/splits/pilot_v1_metadata.json"
+click node_modeling "https://github.com/fedorsukhoi/bias_project/blob/main/src/bias_dataset/modeling.py"
+click node_audit_notebook "https://github.com/fedorsukhoi/bias_project/blob/main/notebooks/01_data_audit.ipynb"
+click node_error_notebook "https://github.com/fedorsukhoi/bias_project/blob/main/notebooks/05_error_analysis.ipynb"
+click node_dashboard_script "https://github.com/fedorsukhoi/bias_project/blob/main/scripts/build_article_dashboards.py"
+
+classDef toneBlue fill:#dbeafe,stroke:#2563eb,stroke-width:1.5px,color:#172554
+classDef toneAmber fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#78350f
+classDef toneMint fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d
+
+class node_outlets,node_registry toneBlue
+class node_feeds,node_backfill,node_collect,node_archive,node_relevance,node_build,node_corpus toneAmber
+class node_split,node_split_metadata,node_modeling,node_audit_notebook,node_analysis_notebooks,node_error_notebook,node_dashboard_script,node_figures toneMint
+```
+
 ### An interpretable experiment with political headlines, publication labels and an intentionally difficult test
 
 Can a model read a political headline and identify whether it came from a publication rated **Left,
